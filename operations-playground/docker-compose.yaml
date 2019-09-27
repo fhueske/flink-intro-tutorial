@@ -40,8 +40,8 @@ services:
       - 8081:8081
     volumes:
       - ./conf:/opt/flink/conf
-      - flink-checkpoint-directory:/tmp/flink-checkpoint-directory
-      - /tmp/flink-savepoints-directory:/tmp/flink-savepoints-directory
+      - ./checkpoints:/tmp/checkpoints
+      - ./savepoints:/tmp/savepoints
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
   taskmanager:
@@ -51,8 +51,8 @@ services:
     command: "taskmanager.sh start-foreground"
     volumes:
       - ./conf:/opt/flink/conf
-      - flink-checkpoint-directory:/tmp/flink-checkpoint-directory
-      - /tmp/flink-savepoints-directory:/tmp/flink-savepoints-directory
+      - ./checkpoints:/tmp/checkpoints 
+      - ./savepoints:/tmp/savepoints
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
   zookeeper:
@@ -68,5 +68,3 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     ports:
       - 9094:9094
-volumes:
-  flink-checkpoint-directory:

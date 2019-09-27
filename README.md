@@ -1,21 +1,21 @@
 # Apache Flink® Introduction Tutorial
 
-----
+This repository provides an introduction tutorial for Apache Flink.
 
-This repository contains the setup for a Apache Flink introduction tutorial. The tutorial covers:
+The tutorial covers:
 
-* Introduction to Apache Flink and stateful stream processing
-* Implementation a simple stateful stream processing application for Apache Flink
-* Querying data streams with Flink SQL
+* Introduction to Apache Flink and stateful stream processing.
+* Implementation a simple stateful stream processing application for Apache Flink.
+* Querying data streams with Flink SQL.
 
 ## Preparing the Tutorial Environment
 
-To follow this tutorial, you will need to download Docker images and Maven artifacts. 
-In order to avoid over-utilization of the conference network, we recommend to prepare for the tutorial at home/work and download the required components beforehand. Also make sure that you have all required software available on your machine.
+To follow this tutorial, you will need some software installed and a couple of Docker images and Maven artifacts on your machine.
+To avoid over-utilization of the conference network and save time, we recommend to install all software and download the required docker images and Maven artifacts beforehand before attending the tutorial.
 
-### Requirements
+### Required Software
 
-A notebook with at least 8 GB memory and 4 CPU cores.
+We recommend a notebook with at least 8 GB memory and 4 CPU cores.
 
 The following software is required:
 
@@ -27,9 +27,9 @@ The following software is required:
 
 We recommend to run Docker with at least 3-4 GB memory and 2-3 CPU cores.
 
-### Downloading the Required Artifacts
+### Downloading the Docker Images and Maven Artifacts
 
-1. Cloning this repository and enter the folder
+1. Cloning this repository and enter the tutorial folder
 
 ```bash
 git clone https://github.com/fhueske/flink-intro-tutorial
@@ -52,7 +52,7 @@ docker-compose pull
 cd ..
 ```
 
-4. Download Apache Flink Maven artifacts
+4. Download the Maven artifacts
 
 ```bash
 cd fraud-detection-job
@@ -71,18 +71,11 @@ The tutorial is based on two Docker-compose playgrounds, i.e., sand-boxed enviro
 
 To start a playground change into the respective folder and run
 
-* Linux & macOS
-
 ```bash
 docker-compose up -d
 ```
 
-* Windows
-
-```bash
-set COMPOSE_CONVERT_WINDOWS_PATHS=1
-docker-compose up -d
-```
+**Note:** If you are using Windows, you need to share the Windows drive (for example `C:`) that you are starting the playground from with Docker. This is done in the "Shared Drives" tab of the Docker settings. Docker will mount the Flink configuration into the Flink containers and use the Windows file system to store checkpoint and savepoint data. 
 
 You can check if the playground was successfully started by running
 
@@ -103,6 +96,10 @@ To stop a playground run the following command from the same folder.
 ```bash
 docker-compose down
 ```
+
+## Questions or Problems with the Setup?
+
+If you have any questions, please open a [issue](https://github.com/fhueske/flink-intro-tutorial/issues) or write me an email to *fhueske [at] apache.org*.
 
 ----
 

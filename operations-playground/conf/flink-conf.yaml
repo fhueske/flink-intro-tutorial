@@ -23,8 +23,9 @@ query.server.port: 6125
 taskmanager.numberOfTaskSlots: 2
 
 state.backend: filesystem
-state.checkpoints.dir: file:///tmp/flink-checkpoints-directory
-state.savepoints.dir: file:///tmp/flink-savepoints-directory
+state.checkpoints.dir: file:///tmp/checkpoints
+state.savepoints.dir: file:///tmp/savepoints
+state.checkpoints.num-retained: 1
 
 heartbeat.interval: 1000
 heartbeat.timeout: 5000
